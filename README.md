@@ -1,98 +1,90 @@
-# [Status Indicator](https://github.com/coderdiaz/vue-status-indicator) &middot; [![NPMVERSION](https://img.shields.io/npm/v/vue-status-indicator.svg)](http://npmjs.com/package/vue-status-indicator) [![GITHUBSTARS](https://img.shields.io/github/stars/coderdiaz/vue-status-indicator.svg)](https://github.com/coderdiaz/vue-status-indicator/stargazers) [![BUILD](https://travis-ci.org/coderdiaz/vue-status-indicator.svg?branch=master)](https://travis-ci.org/coderdiaz/vue-status-indicator) [![DOWNLOADS](https://img.shields.io/npm/dt/vue-status-indicator.svg)](https://npmjs.com/package/vue-status-indicator)
+# Vue 3 Status Indicator
 
-A Vue component to show a status indicator as colored dots. This is a fork of [status-indicator](https://github.com/tnhu/status-indicator) with a few changes for use it with Vue.
+A simple, customizable status indicator component for Vue 3. Show status with colored dots and optional pulse animations.
 
-## Install/Usage
-<!-- Replace the docs for usage the plugin -->
-```sh
-# Install with npm
-$ npm i -S vue-status-indicator
+[![npm version](https://img.shields.io/npm/v/@maxigalaxi/vue-status-indicator.svg)](https://www.npmjs.com/package/@maxigalaxi/vue-status-indicator)
+[![npm downloads](https://img.shields.io/npm/dm/@maxigalaxi/vue-status-indicator.svg)](https://www.npmjs.com/package/@maxigalaxi/vue-status-indicator)
+[![License](https://img.shields.io/npm/l/@maxigalaxi/vue-status-indicator.svg)](https://github.com/MaxiGalaxi/vue-status-indicator/blob/main/LICENSE)
 
-# or yarn
-$ yarn add vue-status-indicator
+## Installation
+
+```bash
+npm install @maxigalaxi/vue-status-indicator
 ```
+
+## Usage
+
+### Global Registration
+
+```js
+import { createApp } from 'vue'
+import StatusIndicator from '@maxigalaxi/vue-status-indicator'
+// Import the CSS
+import '@maxigalaxi/vue-status-indicator/dist/status-indicator.css'
+
+const app = createApp(App)
+app.use(StatusIndicator)
+```
+
+### Local Registration
+
+```js
+import { StatusIndicator } from '@maxigalaxi/vue-status-indicator'
+import '@maxigalaxi/vue-status-indicator/dist/status-indicator.css'
+
+export default {
+  components: {
+    StatusIndicator
+  }
+}
+```
+
+### Basic Usage
 
 ```html
-<div id="app">
-  <status-indicator status="active" />
-</div>
+<template>
+  <status-indicator status="positive" />
+  <status-indicator status="negative" pulse />
+</template>
 ```
 
-You can use **Local Registration**:
-```js
-import { StatusIndicator } from 'vue-status-indicator';
-new Vue({
-  el: '#app',
-  components: {
-    StatusIndicator,
-  },
-});
-```
+## Props
 
-or **Global Registration**:
-```js
-import StatusIndicator from 'vue-status-indicator';
-Vue.use(StatusIndicator);
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| status | String | "" | Status type: 'active', 'positive', 'intermediary', 'negative' |
+| pulse | Boolean | false | Enable pulsing animation |
 
-// or with a custom component name
-import { StatusIndicator } from 'vue-status-indicator';
-Vue.component('custom-name', StatusIndicator);
-```
+## Customization
 
-### Usage in browser
-<!-- Write an example for use the plugin in browser from CDN -->
-In browser you can use Unpkg, Jsdelivr, CDN.js, etc.
-```sh
-# Unpkg
-https://unpkg.com/vue-status-indicator@latest/dist/vue-status-indicator.js
-
-# JSDelivr
-https://cdn.jsdelivr.net/npm/vue-status-indicator@latest/dist/vue-status-indicator.min.js
-```
-
-### Supported Browsers
-Latest versions of Chrome/Firefox/Safari/IE/Opera.
-
-## Documentation
-<!-- Add all documentation about the plugin: props, events, etc -->
-### Props
-|Name|Description|Type|Default|Required|
-|---|---|---|---|---|
-|status|Status color for the dot|String|""|false|
-|pulse|Enable or disable the pulse effect|Boolean|false|false|
-
-### Customatization
-You are able to customize the dot by CSS variables, default configuration is listed below.
+Customize the appearance using CSS variables:
 
 ```css
 :root {
   --status-indicator-size: 10px;
   --status-indicator-animation-duration: 2s;
 
+  /* Default state */
   --status-indicator-color: rgb(216, 226, 233);
-  --status-indicator-color-semi: rgba(216, 226, 233, .5);
-  --status-indicator-color-transparent: rgba(216, 226, 233, 0);
-
+  
+  /* Active state */
   --status-indicator-color-active: rgb(0, 149, 255);
-  --status-indicator-color-active-semi: rgba(0, 149, 255, .5);
-  --status-indicator-color-active-transparent: rgba(0, 149, 255, 0);
-
+  
+  /* Positive state */
   --status-indicator-color-positive: rgb(75, 210, 143);
-  --status-indicator-color-positive-semi: rgba(75, 210, 143, .5);
-  --status-indicator-color-positive-transparent: rgba(75, 210, 143, 0);
-
+  
+  /* Intermediary state */
   --status-indicator-color-intermediary: rgb(255, 170, 0);
-  --status-indicator-color-intermediary-semi: rgba(255, 170, 0, .5);
-  --status-indicator-color-intermediary-transparent: rgba(255, 170, 0, 0);
-
+  
+  /* Negative state */
   --status-indicator-color-negative: rgb(255, 77, 77);
-  --status-indicator-color-negative-semi: rgba(255, 77, 77, .5);
-  --status-indicator-color-negative-transparent: rgba(255, 77, 77, 0);
 }
 ```
 
-## Community
-All feedback and suggestions are welcome!
+## Why This Fork?
+
+This is a Vue 3 compatible fork of the original [vue-status-indicator](https://github.com/coderdiaz/vue-status-indicator) package. Created to provide Vue 3 support while maintaining the simplicity of the original component.
 
 ## License
-This is a open-source software licensed under the [MIT license](https://raw.githubusercontent.com/coderdiaz/vue-status-indicator/master/LICENSE)
+
+MIT © Maximilian Rittler

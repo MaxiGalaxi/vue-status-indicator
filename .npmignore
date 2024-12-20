@@ -1,0 +1,19 @@
+# Development files
+src/
+.vite/
+node_modules/
+tests/
+
+# Config files
+.gitignore
+.npmignore
+vite.config.js
+*.config.js
+
+# Logs and OS files
+*.log
+.DS_Store
+
+# Editor directories
+.idea/
+.vscode/
